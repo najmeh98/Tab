@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/public/build/tailwind.css" rel="stylesheet" />
+</head>
+
+<body class=" bg-gradient-to-r from-cyan-500 to-blue-500   flex items-center justify-center h-screen">
+
+    <div x-data="{tabNo : 1 , activeClass: 'text-blue-600 bg-white'}"
+        class="max-w-md w-full px-2 gap-y-4 flex flex-col">
+
+        <div class="rounded-xl flex space-x-2 p-2 bg-blue-500 text-white items-center justify-between w-full">
+            <!-- Tab Header -->
+            <button :class="tabNo === 1 ? activeClass : '' " @click="tabNo = 1"
+                :class="tabNo !== 1 ? hover:bg-blue-400 : ''"
+                class="flex-1 p-2 cursor-pointer  text-center rounded-lg focus:ring-2  focus:ring-blue-300 focus:ring-offset-2 focus:ring-offset-blue-400 focus:outline-none">Recent</button>
+
+            <button :class="tabNo === 2 ? activeClass : '' " @click="tabNo = 2"
+                :class="tabNo !== 1 ? hover:bg-blue-400 : ''"
+                class="flex-1 p-2 cursor-pointer  text-center rounded-lg  focus:ring-2  focus:ring-blue-300 focus:ring-offset-2 focus:ring-offset-blue-400 focus:outline-none">Popular</button>
+
+
+            <button :class="tabNo === 3 ? activeClass : '' " @click="tabNo = 3"
+                :class="tabNo !== 1 ? hover:bg-blue-400 : ''"
+                class="flex-1 p-2 cursor-pointer  text-center rounded-lg focus:ring-2  focus:ring-blue-300 focus:ring-offset-2 focus:ring-offset-blue-400 focus:outline-none">Treding</button>
+        </div>
+
+        <!-- Tab Content -->
+
+        <!-- recent -->
+        <div class="bg-white p-2 rounded-xl gap-y-2 flex flex-col">
+
+            <div x-show-="tabNo === 1">
+                <div class=" hover:bg-gray-200  rounded-xl px-2 py-4 cursor-pointer   ">
+                    <p class="font-bold ">Does drinking coffee make you smarter?
+                    </p>
+                    <span class="text-gray-400">5h ago &bull; 5 comments &bull; 2 shares</span>
+                </div>
+
+                <div class="rounded-xl hover:bg-gray-200 px-2 py-4 cursor-pointer">
+                    <p class="font-bold">So you've bought coffee... now what?</p>
+                    <span class="text-gray-400">2h ago &bull; 3 comments &bull; 2 shares</span>
+                </div>
+
+            </div>
+
+
+            <!-- popular -->
+            <div x-show-="tabNo === 2">
+                <div class="rounded-xl hover:bg-gray-200 px-2 py-4 cursor-pointer">
+                    <p class="font-bold">Is tech making coffee better or worse?</p>
+                    <span class="text-gray-400">Jan 7 &bull; 29 comments &bull; 16 shares</span>
+                </div>
+
+
+                <div class="rounded-xl hover:bg-gray-200 px-2 py-4 cursor-pointer">
+                    <p class="font-bold">The most innovative things happening in coffee</p>
+                    <span class="text-gray-400">Jan 19 &bull; 24 comments &bull; 12 shares</span>
+                </div>
+            </div>
+
+
+            <!-- treding -->
+            <div x-show-="tabNo === 3">
+                <div class="rounded-xl hover:bg-gray-200 px-2 py-4 cursor-pointer">
+                    <p class="font-bold">Ask Me Anything: 10 answers to your questions about coffee</p>
+                    <span class="text-gray-400">2d ago &bull; 9 comments &bull; 5 shares</span>
+                </div>
+
+
+                <div class="rounded-xl hover:bg-gray-200 px-2 py-4 cursor-pointer">
+                    <p class="font-bold">The worst advice we've ever heard about coffee</p>
+                    <span class="text-gray-400">4d ago &bull; comments &bull; 1 shares</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src=" //unpkg.com/alpinejs" defer></script>
+</body>
+
+</html>
